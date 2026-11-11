@@ -1,27 +1,26 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.External;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp
-public class sideintake extends LinearOpMode {
+//autonomous
+public class servo extends LinearOpMode {
     private CRServo left;
     private CRServo right;
 
     @Override
-    public void runOpMode() {
-        left = hardwareMap.get(CRServo.class, "servoLeft");
+    public void runOpMode(){
+        left = hardwareMap.get(CRServo.class, "servoleft");
         right = hardwareMap.get(CRServo.class, "servoRight");
 
         left.setDirection(DcMotorSimple.Direction.FORWARD);
         right.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
-        while (opModeIsActive()) {
 
-            if (gamepad1.dpad_down) {
+        while(opModeIsActive()){
+            if(gamepad1.dpad_down){
                 left.setPower(1);
                 right.setPower(1);
             } else {
@@ -30,5 +29,8 @@ public class sideintake extends LinearOpMode {
             }
         }
     }
+
+
+    // buat gerakin servo
+
 }
-//autonomous
